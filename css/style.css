@@ -536,3 +536,60 @@ ul.menu-liste li p.menu-beschreibung {
 .app-footer .copyright-text {
     margin-top: 10px; /* Stellt sicher, dass etwas Abstand zum Balken ist, falls dieser direkt darüber liegt */
 }
+
+
+
+
+
+ul.untermenue-liste li.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px; /* Etwas weniger Padding, wenn Balken dabei ist */
+    padding-bottom: 10px;
+}
+
+ul.untermenue-liste li.menu-item a {
+    flex-grow: 1;
+    margin-right: 15px; /* Abstand zum Fortschrittsbalken */
+}
+
+.submenu-progress-indicator {
+    flex-shrink: 0; /* Verhindert, dass der Balken-Container schrumpft */
+    width: 80px; /* Feste Breite für den Mini-Balken-Container, anpassen nach Bedarf */
+}
+
+.mini-progress-bar-container {
+    height: 10px; /* Höhe des Mini-Balkens */
+    background-color: #e9ecef; /* Heller Hintergrund für den leeren Teil */
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ced4da; /* Leichte Umrandung */
+}
+
+.mini-progress-bar-container.no-questions .mini-progress-bar-fill.empty {
+    background-color: #e9ecef; /* Hintergrund für "keine Fragen", gleicht dem Container */
+    /* Oder eine andere Farbe, z.B. ein sehr helles Grau, um es als "nicht zutreffend" zu markieren */
+    /* background-color: #f8f9fa; */
+}
+
+.mini-progress-bar-fill {
+    height: 100%;
+    border-radius: 4px; /* Etwas weniger als der Container, um den Rand durchscheinen zu lassen */
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.mini-progress-bar-fill.empty {
+    background-color: #f8f9fa; /* Sehr heller Hintergrund für leeren Balken (fast unsichtbar) */
+    /* Optional: eine sehr dünne Border, um den leeren Balken anzudeuten */
+    /* border: 1px solid #dee2e6;
+    box-sizing: border-box; */
+}
+
+.mini-progress-bar-fill.partial {
+    background-color: #ffc107; /* Gelb/Orange für teilweise erledigt */
+}
+
+.mini-progress-bar-fill.full {
+    background-color: #28a745; /* Grün für vollständig erledigt */
+}
