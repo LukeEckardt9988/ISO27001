@@ -1,8 +1,8 @@
 <?php
-$servername = ""; // Standard für XAMPP
-$username = "";        // Standard für XAMPP
+$servername = "localhost"; // Standard für XAMPP
+$username = "root";        // Standard für XAMPP
 $password = "";            // Standard für XAMPP (oft leer)
-$dbname = ""; // **ERSETZE DAS MIT DEINEM DATENBANKNAMEN**
+$dbname = "iso27001"; // **ERSETZE DAS MIT DEINEM DATENBANKNAMEN**
 
 // Verbindung erstellen
 $conn = new mysqli($servername, $username, $password, $dbname);

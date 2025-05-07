@@ -479,3 +479,60 @@ ul.menu-liste li p.menu-beschreibung {
     background-color: #1bbaa4;
     color: #2a3539;
 }
+
+
+
+
+
+.progress-container {
+    margin-top: 10px; /* Abstand nach oben, falls andere Elemente im Footer sind */
+    margin-bottom: 15px; /* Abstand zum Copyright-Text */
+    width: 100%;
+    max-width: 450px; /* Maximale Breite des Fortschrittsbalkens, anpassen nach Bedarf */
+    margin-left: auto;  /* Zentriert den Balken im Footer-Container */
+    margin-right: auto;
+}
+
+.progress-bar-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em; /* Kleinere Schrift für die Beschriftung */
+    color: #adb5bd;    /* Passend zur bestehenden Footer-Textfarbe */
+    margin-bottom: 6px;
+}
+
+.progress-bar-label .progress-percentage {
+    font-weight: bold;
+    color: #f8f9fa; /* Heller für besseren Kontrast auf dunklem Footer */
+}
+
+.progress-bar-background {
+    width: 100%;
+    background-color: #495057; /* Ein dunklerer Grauton für den Hintergrund des Balkens */
+    border-radius: 6px;        /* Abgerundete Ecken für den gesamten Balken */
+    height: 14px;              /* Höhe des Balkens */
+    overflow: hidden;          /* Stellt sicher, dass der Füllbalken innerhalb der Grenzen bleibt */
+    border: 1px solid #5a6268; /* Leichte Umrandung für Definition */
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2); /* Leichter innerer Schatten für Tiefe */
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #1bbaa4; /* Ihre Teal-Akzentfarbe für den Füllstand */
+    /* Für einen leichten Gradienten-Effekt: */
+    /* background-image: linear-gradient(to bottom, #20c997, #1bbaa4); */
+    border-radius: 5px;        /* Abgerundete Ecken auch für den Füllbalken (etwas weniger als der Hintergrund) */
+    transition: width 0.6s ease-in-out; /* Sanfter Übergang, wenn sich der Wert ändert */
+    display: flex;             /* Für optionale Textzentrierung im Balken */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+/* Copyright-Text im Footer, falls er angepasst werden muss wegen des Balkens */
+.app-footer .copyright-text {
+    margin-top: 10px; /* Stellt sicher, dass etwas Abstand zum Balken ist, falls dieser direkt darüber liegt */
+}
