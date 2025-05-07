@@ -1,0 +1,481 @@
+/* filename: style.css */
+/* Allgemeine Stile & Reset */
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif; /* Etwas modernere, gut lesbare Schrift */
+    font-size: 14px; /* Etwas größer für bessere Lesbarkeit als die vorherigen 13px */
+    margin: 0;
+    padding: 0;
+    background-color: #eaeaea; /* Heller, neutraler Hintergrund */
+    color: #4a4a4a; /* Dunkleres Grau für Text */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Stellt sicher, dass der Body immer die volle Höhe hat für Sticky Footer */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%; /* Etwas schmaler für bessere Lesbarkeit von Textblöcken */
+    max-width: 1280px; /* Maximalbreite */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.app-header {
+    background-color: #2a3539; /* Dunkelblau/Grau - Farbig wie gewünscht */
+    color: white;
+    padding: 15px 0;
+    border-bottom: 8px solid #1bbaa4; /* Teal-Akzent als untere Linie */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky; /* Header bleibt beim Scrollen oben */
+    top: 0;
+    z-index: 1000;
+}
+
+.app-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Um ggf. rechts Elemente zu platzieren */
+}
+
+.app-header .logo {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #ffffff;
+}
+.app-header .logo a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* Breadcrumbs Navigation */
+.breadcrumbs-nav {
+    background-color: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px solid #dfe3e6;
+    font-size: 0.9em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.breadcrumb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-list li {
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.breadcrumb-list a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb-list a:hover {
+    text-decoration: underline;
+    color: #003d80;
+}
+
+.breadcrumb-separator {
+    margin: 0 7px;
+    color: #777;
+}
+
+/* Hauptinhaltsbereich */
+.page-content-wrapper {
+    flex-grow: 1; /* Nimmt den verfügbaren Platz ein, schiebt Footer nach unten */
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow-y: auto; /* Scrollbar, wenn Inhalt länger ist */
+}
+.page-content-wrapper .container { /* Container innerhalb des Wrappers */
+    padding-left:0; /* Padding wird vom Wrapper gesteuert, falls nötig */
+    padding-right:0;
+}
+
+
+h1, h2, h3 {
+    color: #2c3e50; /* Passend zum Header für stärkere Titel */
+    margin-top: 0;
+    margin-bottom: 15px; /* Mehr Abstand nach Überschriften */
+    font-weight: 600;
+    letter-spacing: 0.5px; /* Etwas mehr Buchstabenabstand */
+}
+
+h1 { font-size: 1.8em; border-bottom: 2px solid #00796b; padding-bottom: 10px; margin-bottom:20px;}
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
+
+a {
+    color: #00796b; /* Teal für Links, um Akzentfarbe zu nutzen */
+    text-decoration: none;
+    font-weight: 500; /* Etwas fetter für bessere Lesbarkeit */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #004d40; /* Dunkleres Teal */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Content Box für Menüs und Fragen */
+.content-box {
+    background-color: #ffffff;
+    border: 1px solid #dfe3e6;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08); /* Dezenter Schatten für Tiefe */
+}
+
+.content-box-header {
+    background-color: #f0f2f5; /* Hellerer Header für die Boxen */
+    padding: 12px 18px;
+    border-bottom: 1px solid #dfe3e6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.content-box-header h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Spezifisches Styling für die Hauptmenü-Liste auf index.php */
+ul.menu-liste { /* Korrigierter Klassenname hier! */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.menu-liste li {
+    padding: 15px 18px;
+    border-bottom: 1px solid #e7e7e7; /* Ihre vorhandene Trennlinie */
+    transition: background-color 0.2s ease-in-out;
+    display: grid;                     /* Grid Layout aktivieren */
+    /*
+       Spalte 1 (Titel-Link): Nimmt so viel Platz wie nötig, aber maximal z.B. 60-65%.
+       Spalte 2 (Beschreibung): Nimmt den restlichen verfügbaren Platz.
+    */
+    grid-template-columns: minmax(auto, 50%) 1fr;
+    gap: 15px;                         /* Etwas reduzierter Abstand zwischen Titel und Beschreibung */
+    align-items: start;                /* Vertikale Ausrichtung oben für beide Spalten */
+}
+
+ul.menu-liste li:last-child {
+    border-bottom: none;
+}
+
+ul.menu-liste li:hover {
+    background-color: #e8f4f2; /* Ihr Heller Teal-Hover */
+}
+
+/* Titel-Styling (direkt der <a>-Tag innerhalb der li der .menu-liste) */
+ul.menu-liste li > a { /* Zielt auf den direkten Kind-Link des li-Elements */
+    font-size: 1.1em;  /* Etwas größer für bessere Sichtbarkeit */
+    font-weight: 600;  /* Fetter für Titelcharakter */
+    line-height: 1.4;
+    color: #4a4a4a;     /* Ihre Standard-Textfarbe */
+    text-decoration: none;
+    /* white-space: nowrap; */ /* Auskommentiert, damit Titel bei Bedarf umbrechen kann */
+                               /* Das Grid sollte dem Titel aber Priorität geben. */
+    display: block; /* Stellt sicher, dass der Link die Spaltenbreite nutzen kann */
+}
+
+ul.menu-liste li > a:hover {
+    color: #00796b;     /* Ihr Teal beim Hovern */
+    text-decoration: underline;
+}
+
+/* Beschreibungs-Styling (p.menu-beschreibung innerhalb der li der .menu-liste) */
+ul.menu-liste li p.menu-beschreibung {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0; /* Wichtig, um Standard-Absätze des p-Tags zu entfernen */
+    line-height: 1.6;
+    /* Die Beschreibung wird automatisch in ihrer Grid-Spalte umbrechen. */
+}
+
+/* Menü- und Fragenlisten */
+.menu-liste li, .fragen-liste li.frage-item {
+    padding: 12px 18px; /* <<-- DIES SOLLTE DEN INNENABSTAND FÜR JEDE FRAGE ERZEUGEN */
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Fragen-Liste spezifisch */
+.frage-text {
+  margin-right: 10px;
+}
+
+.status-icon {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 4px 6px;
+    border-radius: 4px;
+    min-width: 22px;
+    text-align: center;
+}
+.status-icon.beantwortet { color: #28a745; }
+.status-icon.unbeantwortet { color: #dc3545; }
+
+/* Zurück-Links (nur Pfeil) */
+.back-link-container {
+    margin-bottom: 20px;
+    text-align: left; /* Oder rechts, je nach Präferenz */
+}
+.back-link {
+    display: inline-block;
+    font-size: 1.5em; /* Größerer Pfeil */
+    color: #00796b; /* Teal */
+    text-decoration: none;
+    padding: 5px;
+    line-height: 1;
+}
+.back-link:hover {
+    color: #004d40; /* Dunkleres Teal */
+}
+
+/* Footer */
+.app-footer {
+    background-color: #2a3539; /* Dunklerer, neutraler Footer */
+    color: #adb5bd; /* Hellerer Text für Kontrast */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 8px solid #1bbaa4; /* Teal-Akzent oben */
+    /* Sticky Footer wird durch Flexbox auf body erreicht */
+}
+.app-footer p {
+    margin: 0;
+}
+
+/* Anpassungen für Ihre spezifischen Antwort-Seiten-Elemente (aus altem CSS übernommen und leicht angepasst) */
+.frage-container {
+    background-color: #fdfdfd;
+    padding: 20px;
+    border: 1px solid #dfe3e6;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.frage-text-gross {
+    font-size: 1.3em;
+    line-height: 1.6;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.antworten-liste .antwort-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.antworten-liste .antwort-item:last-child{
+    margin-bottom: 0;
+}
+
+.antwort-text {
+    font-size: 1em;
+    line-height: 1.6; /* Mehr Zeilenabstand */
+    letter-spacing: 0.2px; /* Leichter Buchstabenabstand */
+}
+
+.antwort-meta {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+.neue-antwort-bereich {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+.neue-antwort-bereich h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+.neue-antwort-bereich label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95em;
+}
+.neue-antwort-bereich textarea,
+.neue-antwort-bereich input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: inherit;
+}
+.neue-antwort-bereich button[type="submit"] {
+    background-color: #00796b;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+}
+.neue-antwort-bereich button[type="submit"]:hover {
+    background-color: #005a4f;
+}
+
+
+
+
+.header-nav {
+    display: flex; /* Elemente nebeneinander anordnen */
+    align-items: center; /* Vertikal zentrieren */
+    margin-left: auto; /* Schiebt die gesamte Navigationseinheit nach rechts */
+}
+
+.dropdown {
+    position: relative; /* Notwendig, damit das .dropdown-menu absolut dazu positioniert werden kann */
+    display: inline-block; /* Passt sich dem Inhalt an, erlaubt aber position:relative */
+    margin-right: 20px; /* Abstand zum nächsten Element (z.B. Logout-Bereich) */
+}
+
+.dropdown-toggle {
+    background-color: transparent; /* Passt sich dem Header-Hintergrund an */
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9em; /* Etwas kleiner als der Haupt-Header-Text */
+    font-weight: 600; /* Etwas fetter */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Dezente weiße Umrandung */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: flex; /* Um den Pfeil neben dem Text auszurichten */
+    align-items: center;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus { /* :focus für Barrierefreiheit bei Tastaturnavigation */
+    background-color: rgba(255, 255, 255, 0.1); /* Leichter Hover-Effekt */
+    border-color: #ffffff; /* Stärkere Border beim Hover/Fokus */
+    outline: none; /* Standard-Browser-Outline entfernen */
+}
+
+.dropdown-arrow {
+    font-size: 0.75em; /* Größe des Pfeils anpassen */
+    margin-left: 6px;
+    transition: transform 0.2s ease-in-out; /* Für eine spätere Pfeil-Drehung per JS, falls gewünscht */
+}
+
+/* Anzeigen des Dropdown-Menüs beim Hover über .dropdown oder Fokus auf .dropdown-toggle */
+/* Hält das Menü auch offen, wenn die Maus über das Menü selbst bewegt wird */
+.dropdown:hover .dropdown-menu,
+.dropdown-toggle:focus + .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Zurück zur normalen Position für Animation */
+}
+
+.dropdown-menu {
+    display: none; /* Standardmäßig ausgeblendet */
+    opacity: 0; /* Für Fade-In-Effekt */
+    visibility: hidden; /* Für Fade-In-Effekt und Barrierefreiheit */
+    position: absolute;
+    background-color: #ffffff; /* Heller Hintergrund für das Dropdown */
+    min-width: 220px; /* Mindestbreite des Dropdowns, anpassen nach Bedarf */
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.2); /* Deutlicherer Schatten */
+    z-index: 1001; /* Muss über anderen Elementen liegen */
+    border-radius: 5px;
+    padding: 8px 0; /* Vertikales Padding für die Liste */
+    margin-top: 6px; /* Kleiner Abstand zum Button */
+    right: 0; /* Richtet das Dropdown rechtsbündig unter dem Button aus */
+    border: 1px solid #d8dfe3; /* Subtile Border */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translateY(-5px); /* Leichte Animation von oben (startet etwas höher) */
+}
+
+.dropdown-menu li {
+    list-style: none; /* Entfernt Aufzählungspunkte */
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    color: #333; /* Dunkler Text für Dropdown-Einträge */
+    padding: 9px 18px; /* Padding für jeden Link */
+    text-decoration: none;
+    display: block; /* Macht den gesamten Bereich klickbar */
+    font-size: 0.9em;
+    white-space: nowrap; /* Verhindert Umbruch langer Dateinamen */
+    overflow: hidden; /* Schneidet überstehenden Text ab */
+    text-overflow: ellipsis; /* Fügt "..." hinzu, wenn Text abgeschnitten wird */
+    clear: both; /* Stellt sicher, dass es keine Float-Probleme gibt, falls verwendet */
+}
+
+.dropdown-menu li a:hover {
+    background-color: #e8f4f2; /* Ihr heller Teal-Hover aus dem Hauptmenü */
+    color: #00796b; /* Teal-Text beim Hover */
+}
+
+/* Anpassung für den Logout-Bereich, falls nötig, um ihn neben dem Dropdown zu positionieren */
+.header-actions {
+    display: flex;
+    align-items: center;
+    /* margin-left: auto; /* Wird jetzt vom .header-nav übernommen */
+}
+
+.user-greeting {
+    /* Stile bleiben wie in Ihrer vorherigen Version oder passen Sie sie hier an */
+    color: #e0e0e0;
+    margin-right: 15px;
+    font-size: 0.9em;
+}
+.user-greeting strong {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.logout-button {
+    /* Stile bleiben wie in Ihrer vorherigen Version oder passen Sie sie hier an */
+    color: #1bbaa4;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 7px 14px;
+    border: 1px solid #1bbaa4;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.logout-button:hover {
+    background-color: #1bbaa4;
+    color: #2a3539;
+}
